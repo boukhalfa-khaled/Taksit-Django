@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<section class="form-section">
+  <div class="container">
+    <div class="everything login">
+      {% include "partials/_messages.html" %}
+      <h2>
+        Log In
+      </h2>
+      <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-inputs">
+          <label for="email">
+            Email
+          </label>
+          <input type="email" value="{{fieldValues.email}}" required placeholder="name@example.com" name="email">
+
+          <label for="password">
+            Password
+          </label>
+          <input type="password" value="{{fieldValues.password}}" required placeholder="*******" name="password" minlength="8">
+        </div>
+        <input class="btn" type="submit" value="submit" />
+        <small>
+          if you new here
+          <a href="signin.html">
+            Sign Up From Here
+          </a>
+        </small>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}

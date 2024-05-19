@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<section class="category_cursol">
+  <div class="container">
+    <div class="emblaCategory">
+      <div class="emblaCategory__viewport">
+        <div class="emblaCategory__container">
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/gamingCategory.png' %}" alt="">
+              </div>
+              <p class="title">Gaming</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/sportEquipment.png' %}" alt="">
+              </div>
+              <p class="title">Sport Equipment</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/kitchen.png' %}" alt="">
+              </div>
+              <p class="title">Kitchen</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/mobiles.png' %}" alt="">
+              </div>
+              <p class="title">Mobiles</p>
+            </div>
+          </a>
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/office.png' %}" alt="">
+              </div>
+              <p class="title">Office</p>
+            </div>
+          </a>
+
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/camera.png' %}" alt="">
+              </div>
+              <p class="title">Cameras</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/computer.png' %}" alt="">
+              </div>
+              <p class="title">Computers</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/tv.png' %}" alt="">
+              </div>
+              <p class="title">Televisions</p>
+            </div>
+          </a>
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/gamingCategory.png' %}" alt="">
+              </div>
+              <p class="title">Gaming</p>
+            </div>
+          </a>
+
+            
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/kitchen.png' %}" alt="">
+              </div>
+              <p class="title">Kitchen</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/mobiles.png' %}" alt="">
+              </div>
+              <p class="title">Mobiles</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <button class="emblaCategoryControler emblaCategory__prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="emblaCategoryControler emblaCategory__next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <section class="posts">
+    <div class="container">
+      <h2 class="category-title">trending</h2>
+      <a href="#">View more -></a>
+    </div>
+    <div class="container">
+
+
+      <div class="wrapper">
+
+
+{% for post in  posts %}
+      <div class="post">
+        <div class="image">
+            <img src="{{  post.image}}" alt="Image">
+        </div>
+        <div class="content">
+          <h4 class="title"> {{post.post.title}} </h4>
+          <div class="rowPrice">
+            <div class="price">
+              {{post.post.price}}  \ {{post.post.month}}  month
+            </div>
+            <div class="wilayTag">
+              {{post.order_count}} 
+            </div>
+          </div>
+        </div>
+        <a href="{% url 'post_detail'  post_id=post.post.id  %}" class="button">
+          See More >
+        </a>
+      </div>
+{% endfor %}
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <script src="{% static 'js/cursolCategory.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- for some animation -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="{% static 'js/cursol.js' %}"></script>
+{% endblock content %}

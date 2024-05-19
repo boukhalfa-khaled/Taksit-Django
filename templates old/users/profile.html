@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% include "partials/_messages.html" %}
+<h1>profile </h1>
+{% for post in  posts %}
+<h2>{{post.title}} </h2>
+<ul>
+  <li> {{post.description}}</li>
+  <li> {{post.owner}}</li>
+  <li> {{post.category}}</li>
+  <li> {{post.date}}</li>
+</ul>
+<br/>
+<h2>
+{% endfor %}
+<a style="color:green" href="{% url 'create_post'%}">createPost</a>
+{% endblock content %}

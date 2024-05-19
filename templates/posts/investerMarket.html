@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+  <section class="filter">
+    <div class="container">
+      <form action="">
+        <div class="search__input">
+          <input type="search" id="search">
+          <div class="search--icon">
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="select__inputs">
+          <div>
+            <label for="wilaya">wilaya</label>
+            <select class="one" id="type" name="type">
+              <option value="Taksit">Taksit</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="category">category</label>
+            <select class="one" id="wilaya" name="wilaya">
+              <option value="djelfa">Djelfa</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="duration">Duration</label>
+            <select class="one" id="wilaya" name="wilaya">
+              <option value="12">12 months</option>
+              <option value="24">24 months</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <section class="posts profile">
+    <div class="container">
+      <h2 class="category-title">posts</h2>
+    </div>
+    <div class="container">
+
+      <div class="wrapper">
+
+
+        
+{% for post in  posts %}
+        <div class="post">
+          <div class="image">
+            <img src="{{  post.image}}" alt="Image">
+          </div>
+          <div class="content">
+            <div class="rowDate">
+              <small class="dateTime">{{post.post.created_at}}  </small>
+              <small class="orders"> Orders: {{post.order_count}} </small>
+            </div>
+            <h4 class="title">{{post.post.title}}</h4>
+            <div class="rowProfile">
+              <div class="profile">
+                <div class="avatar">
+                  <img src="{{post.post.seller.img.url}}" alt="">
+                </div>
+                <div class="info">
+                  <div class="name">
+                    {{post.post.seller.name}}
+                  </div>
+                  <small>shope</small>
+                </div>
+              </div>
+              <div class="wilayTag">
+                {{post.post.category}}
+              </div>
+            </div>
+            <div class="sellFor">
+              Buy For: <span class="red">90.000.00 DA</span>, sell for: 
+            </div>
+            <div class="rowCards">
+
+              <div class="card clicked" data-card-id="1">
+                <div class="duration">
+                  6 Month plan
+                </div>
+                <div class="price">
+                  5,499.00DA
+                </div>
+                <small>per month</small>
+              </div>
+
+              <div class="card" data-card-id="2">
+                <div class="duration">
+                  12 Month plan
+                </div>
+                <div class="price">
+                  5,499.00DA
+                </div>
+                <small>per month</small>
+              </div>
+
+              <div class="card" data-card-id="3">
+                <div class="duration">
+                  24 Month plan
+                </div>
+                <div class="price">
+                  5,499.00DA
+                </div>
+                <small>per month</small>
+              </div>
+            </div>
+            <div class="rowProfits">
+              <div class="profit">
+                <p>Total profit:</p>
+                <p class="price">20,000,00 DA</p>
+              </div>
+              <div class="profit">
+                <p>Total profit:</p>
+                <p class="price">20,000,00 DA</p>
+              </div>
+              <div class="profit">
+                <p>Total profit:</p>
+                <p class="price">20,000,00 DA</p>
+              </div>
+            </div>
+
+          </div>
+          <a href="{% url 'post_detail'  post_id=post.post.id  %}" class="button">
+            See More >
+          </a>
+        </div>
+{% endfor %}
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <script src="{% static 'js/cursolCategory.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- for some animation -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="{% static 'js/cursol.js' %}"></script>
+{% endblock content %}

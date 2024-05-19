@@ -1,0 +1,451 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<section class="profile-avatar">
+  <div class="container">
+    {% include "partials/_messages.html" %}
+    <div class="avatar"><a href="">
+        <img src="{{ request.user.img.url }}" alt="">
+      </a>
+    </div>
+    <p class="name"> {{request.user.first_name}} {{request.user.last_name}} </p>
+  </div>
+</section>
+
+
+{% comment %} 
+
+<section class="posts profile">
+  <div class="container">
+    <h2 class="category-title">posts</h2>
+  </div>
+  <div class="container">
+
+
+    <div class="wrapper">
+
+
+{% for post in  post_data %}
+      <div class="post">
+        <div class="image">
+              <img src="{{ post.image  }}" alt="Image">
+        </div>
+        <div class="content">
+          <h4 class="title"> {{post.post.title}} </h4>
+          <div class="rowPrice">
+            <div class="price">
+              {{post.post.price}}DA
+              {% if post.post.months is not none %}
+                \ {{ post.post.months }}  month
+              {% endif %}
+            </div>
+            <div class="wilayTag">
+              {{post.post.wilaya}} 
+            </div>
+          </div>
+        </div>
+        <a  href="{% url 'post_detail'  post_id=post.post.id  %}" class="button">
+          See More >
+        </a>
+      </div>
+{% endfor %}
+
+
+
+
+
+    </div>
+  </div>
+</section>
+
+ {% endcomment %}
+
+
+
+
+
+
+
+<section class="posts profile">
+  <div class="container">
+    <h2 class="category-title">Pending</h2>
+  </div>
+  <div class="container">
+
+    <div class="wrapper">
+{% for post in  post_data %}
+
+      {% if post.post.months is not none %}
+      <div class="post">
+        <div class="image">
+          <img src="{{post.image}}" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">{{post.post.created_at}} </small>
+          </div>
+          <h4 class="title">{{post.post.title}} </h4>
+          <div class="rowCards">
+
+            <div class="card" data-card-id="1">
+              <div class="duration">
+              {{ post.post.months }} month
+              </div>
+              <div class="price">
+                <span class="red">
+              {{post.post.price}} DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="2">
+              <div class="duration">
+                12 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="3">
+              <div class="duration">
+                24 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+          </div>
+
+
+        </div>
+        <a  href="{% url 'post_detail'  post_id=post.post.id  %}" class="button">
+          See More >
+        </a>
+      </div>
+      {% else %}
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">{{post.post.created_at}}</small>
+            <small class="orders">Orders: 05</small>
+          </div>
+          <h4 class="title">{{post.post.title}}</h4>
+          <div class="priceAlone">
+            {{post.post.price}} DA
+          </div>
+        </div>
+        <a  href="{% url 'post_detail'  post_id=post.post.id  %}" class="button">
+          See More >
+        </a>
+      </div>
+  {% endif%}
+{% endfor %}
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% comment %} 
+
+<section class="posts profile">
+  <div class="container">
+    <h2 class="category-title">Ongoing</h2>
+  </div>
+  <div class="container">
+
+    <div class="wrapper">
+
+
+
+
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">Sat 04 May 2025 - 09:52PM</small>
+          </div>
+          <h4 class="title">TV IRIS 65 G5010 ANDROID GOOGLE TV 65POUCES UHD 4K</h4>
+          <div class="rowSingleCard">
+            <div class="card clicked" data-card-id="1">
+              <div class="duration">
+                6 Month plan
+              </div>
+              <div class="price">
+                5,499.00DA
+              </div>
+              <small>per month</small>
+            </div>
+            <div class="infos">
+              <p><span class="title">Price</span> <span class="value">90,000,00DA</span></p>
+              <p><span class="title">Total Profit</span> <span class="value">90,000,00DA</span></p>
+              <p><span class="title">Next Paiment On</span> <span class="value">Pending</span></p>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">Sat 04 May 2025 - 09:52PM</small>
+          </div>
+          <h4 class="title">TV IRIS 65 G5010 ANDROID GOOGLE TV 65POUCES UHD 4K</h4>
+          <div class="rowSingleCard">
+            <div class="card clicked" data-card-id="1">
+              <div class="duration">
+                6 Month plan
+              </div>
+              <div class="price">
+                5,499.00DA
+              </div>
+              <small>per month</small>
+            </div>
+            <div class="infos">
+              <p><span class="title">Price</span> <span class="value">90,000,00DA</span></p>
+              <p><span class="title">Total Profit</span> <span class="value">90,000,00DA</span></p>
+              <p><span class="title">Next Paiment On</span> <span class="value">Pending</span></p>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">Sat 04 May 2025 - 09:52PM</small>
+          </div>
+          <h4 class="title">TV IRIS 65 G5010 ANDROID GOOGLE TV 65POUCES UHD 4K</h4>
+          <div class="rowSingleCard">
+            <div class="card clicked" data-card-id="1">
+              <div class="duration">
+                6 Month plan
+              </div>
+              <div class="price">
+                5,499.00DA
+              </div>
+              <small>per month</small>
+            </div>
+            <div class="infos">
+              <p><span class="title">Price</span> <span class="value">90,000,00DA</span></p>
+              <p><span class="title">Total Profit</span> <span class="value">90,000,00DA</span></p>
+              <p><span class="title">Next Paiment On</span> <span class="value">Pending</span></p>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="posts profile">
+  <div class="container">
+    <h2 class="category-title">Completed</h2>
+  </div>
+  <div class="container">
+
+    <div class="wrapper">
+
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">Sat 04 May 2025 - 09:52PM</small>
+          </div>
+          <h4 class="title">TV IRIS 65 G5010 ANDROID GOOGLE TV 65POUCES UHD 4K</h4>
+          <div class="rowCards">
+
+            <div class="card" data-card-id="1">
+              <div class="duration">
+                6 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="2">
+              <div class="duration">
+                12 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="3">
+              <div class="duration">
+                24 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">Sat 04 May 2025 - 09:52PM</small>
+          </div>
+          <h4 class="title">TV IRIS 65 G5010 ANDROID GOOGLE TV 65POUCES UHD 4K</h4>
+          <div class="rowCards">
+
+            <div class="card" data-card-id="1">
+              <div class="duration">
+                6 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="2">
+              <div class="duration">
+                12 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="3">
+              <div class="duration">
+                24 Month plan
+              </div>
+              <div class="price">
+                <span class="red">
+                5,499.00DA
+                </span> 
+              </div>
+              <small>per month</small>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="image">
+          <img src="" alt="">
+        </div>
+        <div class="content">
+          <div class="rowDate">
+            <small class="dateTime">Sat 04 May 2025 - 09:52PM</small>
+            <small class="orders">Orders: 05</small>
+          </div>
+          <h4 class="title">TV IRIS 65 G5010 ANDROID GOOGLE TV 65POUCES UHD 4K</h4>
+          <div class="priceAlone">
+            4,299.00DA
+          </div>
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="{% static 'js/main.js' %}"></script>
+{% endblock content %}
+

@@ -1,0 +1,575 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<section class="category_cursol">
+  <div class="container">
+    <div class="emblaCategory">
+      <div class="emblaCategory__viewport">
+        <div class="emblaCategory__container">
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/gamingCategory.png' %}" alt="">
+              </div>
+              <p class="title">Gaming</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/sportEquipment.png' %}" alt="">
+              </div>
+              <p class="title">Sport Equipment</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/kitchen.png' %}" alt="">
+              </div>
+              <p class="title">Kitchen</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/mobiles.png' %}" alt="">
+              </div>
+              <p class="title">Mobiles</p>
+            </div>
+          </a>
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/office.png' %}" alt="">
+              </div>
+              <p class="title">Office</p>
+            </div>
+          </a>
+
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/camera.png' %}" alt="">
+              </div>
+              <p class="title">Cameras</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/computer.png' %}" alt="">
+              </div>
+              <p class="title">Computers</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/tv.png' %}" alt="">
+              </div>
+              <p class="title">Televisions</p>
+            </div>
+          </a>
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/gamingCategory.png' %}" alt="">
+              </div>
+              <p class="title">Gaming</p>
+            </div>
+          </a>
+
+            
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/kitchen.png' %}" alt="">
+              </div>
+              <p class="title">Kitchen</p>
+            </div>
+          </a>
+
+
+          <a href="./index.html" class="emblaCategory__slide">
+            <div class="category">
+              <div class="image">
+                <img src="{% static '/assets/mobiles.png' %}" alt="">
+              </div>
+              <p class="title">Mobiles</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <button class="emblaCategoryControler emblaCategory__prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="emblaCategoryControler emblaCategory__next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+
+
+{% comment %} 
+  <section class="posts">
+    <div class="container">
+      <h2 class="category-title">trending</h2>
+      <a href="#">View more -></a>
+    </div>
+    <div class="container">
+
+
+      <div class="wrapper">
+
+
+{% for post in  posts %}
+      <div class="post">
+        <div class="image">
+            <img src="{{  post.image}}" alt="Image">
+        </div>
+        <div class="content">
+          <h4 class="title"> {{post.post.title}} </h4>
+          <div class="rowPrice">
+            <div class="price">
+              {{post.post.price}}  \ {{post.post.month}}  month
+            </div>
+            <div class="wilayTag">
+              {{post.post.category}} 
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          See More >
+        </div>
+      </div>
+{% endfor %}
+ {% endcomment %}
+
+
+      {% comment %} </div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
+    
+  {% comment %} </section> {% endcomment %}
+
+
+  <section class="single-post">
+    <div class="container">
+      <div class="post">
+        <div class="title">
+          <h1>
+            {{post.title}} 
+          </h1>
+          {% comment %} <small>Sat 04 may 2025 - 09:52PM</small> {% endcomment %}
+          <small> {{post.created_at}} </small>
+        </div>
+        <div class="images">
+
+
+
+          <div class="embla">
+            <div class="embla__viewport">
+              <div class="embla__container">
+
+              {% for image in  images %}
+                <div class="embla__slide">
+                  <img src="{{ image  }}" alt="">
+                </div>
+              {% endfor %}
+              </div>
+            </div>
+            <button class="emblaControler embla__prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="emblaControler embla__next"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+
+
+
+        </div>
+
+        <div class="row2">
+          <div class="profile">
+            <div class="avatar">
+              <img src="{{post.seller.img.url}}" alt="">
+            </div>
+            <div class="info">
+              <div class="name">{{post.seller.last_name}} {{post.seller.first_name}}</div>
+              <small>shope</small>
+            </div>
+          </div>
+          <div class="types">
+            <div class="type">
+              {{post.wilaya}}
+            </div>
+            <div class="type">
+              Installment
+            </div>
+          </div>
+        </div>
+
+              
+          {% if not   post.is_cash %}
+            <div class="plan">
+              <h3>Choose Your Plan</h3>
+              <div class="cards">
+
+                <div class="card clicked" data-card-id="1">
+                  <div class="duration">
+                    6 Month plan
+                  </div>
+                  <div class="price">
+                    5,499.00DA
+                  </div>
+                  <small>per month</small>
+                </div>
+
+                <div class="card" data-card-id="2">
+                  <div class="duration">
+                    12 Month plan
+                  </div>
+                  <div class="price">
+                    5,499.00DA
+                  </div>
+                  <small>per month</small>
+                </div>
+
+                <div class="card" data-card-id="3">
+                  <div class="duration">
+                    24 Month plan
+                  </div>
+                  <div class="price">
+                    5,499.00DA
+                  </div>
+                  <small>per month</small>
+                </div>
+              </div>
+                <button class="order">
+                  Buy Now!
+                </button> 
+            </div>
+
+
+          {% else %}
+        <div class="plan">
+          <h3>Choose Your Plan</h3>
+          <div class="cards">
+
+            <div class="card clicked" data-card-id="1">
+              <div class="duration">
+                6 Month plan
+              </div>
+              <div class="price">
+                5,499.00DA
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="2">
+              <div class="duration">
+                12 Month plan
+              </div>
+              <div class="price">
+                5,499.00DA
+              </div>
+              <small>per month</small>
+            </div>
+
+            <div class="card" data-card-id="3">
+              <div class="duration">
+                24 Month plan
+              </div>
+              <div class="price">
+                5,499.00DA
+              </div>
+              <small>per month</small>
+            </div>
+          </div>
+
+          {% comment %} <button class="order">
+            Order Now!
+          </button> {% endcomment %}
+
+          {% if request.user.role == 'customer' %}
+            {% if has_ordered %}
+              <button class="order" type="button" disabled>Order Now!</button>
+            {% else %}
+              <form action="{% url 'create_order' post.id %}" method="post">
+                  {% csrf_token %}
+                  <button class="order" type="submit">Order Now!</button>
+              </form>
+            {% endif %}
+          {% elif request.user.role == 'invester' %}
+            <button class="order">
+                Invest Now!
+            </button> 
+          {% else %}
+            <form action="{% url 'login' %}" method="get">
+                {% csrf_token %}
+                <button class="order" type="submit">Ordere Now!</button>
+            </form>
+          {% endif %}
+
+
+          {% endif%}
+
+        </div>
+        <div class="description">
+          <h3>description:</h3>
+          <p>{{post.description}} </p>
+        </div>
+
+        <div class="reviews">
+          <h3>Reviews:</h3>
+          <div class="wrapper">
+            <div class="link"> <a href="">View All -></a> </div>
+            <div class="cards">
+
+
+              <div class="card">
+                <div class="profile">
+                  <div class="avatar">
+                    <img src="images/avatar.jpg" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">
+                      boukhalfa khaled islam
+                    </div>
+                    <small>shope</small>
+                  </div>
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos repellendus ratione vel necessitatibus delectus neque sed fugit cum temporibus exercitationem placeat tempora atque blanditiis nam, eveniet sit dolor quo.
+                </p>
+              </div>
+
+
+              <div class="card">
+                <div class="profile">
+                  <div class="avatar">
+                    <img src="images/avatar.jpg" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">
+                      boukhalfa khaled islam
+                    </div>
+                    <small>shope</small>
+                  </div>
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos repellendus ratione vel necessitatibus delectus neque sed fugit cum temporibus exercitationem placeat tempora atque blanditiis nam, eveniet sit dolor quo.
+                </p>
+              </div>
+
+
+              <div class="card">
+                <div class="profile">
+                  <div class="avatar">
+                    <img src="images/avatar.jpg" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">
+                      boukhalfa khaled islam
+                    </div>
+                    <small>shope</small>
+                  </div>
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos repellendus ratione vel necessitatibus delectus neque sed fugit cum temporibus exercitationem placeat tempora atque blanditiis nam, eveniet sit dolor quo.
+                </p>
+              </div>
+
+
+              <div class="card">
+                <div class="profile">
+                  <div class="avatar">
+                    <img src="images/avatar.jpg" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">
+                      boukhalfa khaled islam
+                    </div>
+                    <small>shope</small>
+                  </div>
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos repellendus ratione vel necessitatibus delectus neque sed fugit cum temporibus exercitationem placeat tempora atque blanditiis nam, eveniet sit dolor quo.
+                </p>
+              </div>
+
+
+
+              <div class="card">
+                <div class="profile">
+                  <div class="avatar">
+                    <img src="images/avatar.jpg" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">
+                      boukhalfa khaled islam
+                    </div>
+                    <small>shope</small>
+                  </div>
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos repellendus ratione vel necessitatibus delectus neque sed fugit cum temporibus exercitationem placeat tempora atque blanditiis nam, eveniet sit dolor quo.
+                </p>
+              </div>
+
+
+
+              <div class="card">
+                <div class="profile">
+                  <div class="avatar">
+                    <img src="images/avatar.jpg" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">
+                      boukhalfa khaled islam
+                    </div>
+                    <small>shope</small>
+                  </div>
+                </div>
+                <div class="stars">
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-solid fa-star"></i> 
+                  </div>
+                  <div class="star">
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero dignissimos repellendus ratione vel necessitatibus delectus neque sed fugit cum temporibus exercitationem placeat tempora atque blanditiis nam, eveniet sit dolor quo.
+                </p>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="{% static 'js/single-post.js' %}"></script>
+  <script src="{% static 'js/cursolCategory.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- for some animation -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="{% static 'js/cursol.js' %}"></script>
+{% endblock content %}

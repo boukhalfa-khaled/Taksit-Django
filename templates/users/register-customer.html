@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <aside id="aside" class="aside">
+    <ul>
+      <a href="">
+        <li>Singup</li>
+      </a>
+      <a href="">
+        <li>Login</li>
+      </a>
+      <br>
+      <a href="">
+        <li>MarketPlace</li>
+      </a>
+    </ul>
+
+  </aside>
+  <section class="form-section">
+    <div class="container">
+      <div class="everything">
+      {% include "partials/_messages.html" %}
+      <h2>
+        Sign up 
+      </h2>
+        <form  action="{% url 'register_customer' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="avatar-pick">
+            <output class="avatar" id="result">
+  
+            </output>
+  
+            <div class="custom-input-file">
+            Pick Profile Picture
+              <input type="file" id="files" name="profile_picture" required accept="image/jpeg, image/png, image/jpg">
+            </div>
+          </div>
+  
+  
+          <div class="form-inputs">
+  
+  
+            <label for="theName">
+              First Name 
+            </label>
+            <input value="{{fieldValues.firstname}}" class="input-f" type="text" required placeholder="firstname" name="firstname" autofocus
+              maxlength="20">
+  
+            <label for="theName">
+              Last Name 
+            </label>
+            <input value="{{fieldValues.lastname}}"  class="input-f" type="text" required placeholder="Last Name" name="lastname" 
+              maxlength="20">
+  
+            <label for="email">
+              Email
+            </label>
+            <input value="{{fieldValues.email}}"  type="email" required placeholder="name@example.com" name="email">
+  
+            <label for="password">
+              Password
+            </label>
+            <input value="{{fieldValues.password}}" type="password" required placeholder="remember your password" name="password" minlength="8">
+          </div>
+  
+  
+          <input class="btn" type="submit" value="submit" />
+          <small>
+          Do You Have An Account
+            <a href="signin.html">
+              Sign In From Here
+            </a>
+          </small>
+        </form>
+      </div>
+    </div>
+  </section>
+
+<script src="{% static 'js/uploadAvatar.js' %}"></script>
+{% endblock content %}

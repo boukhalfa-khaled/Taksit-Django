@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %} {% block content %}
+<form action="{% url "create_post" %} " method="POST">
+  {% include 'partials/_messages.html'%} {% csrf_token %}
+          <label for="">title</label>
+          <input
+            type="text"
+            class=""
+            name="title"
+            value="{{values.title}}"
+          />
+          <label for="">Description</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="description"
+            value="{{values.description}}"
+          />
+          <label for="">Category</label>
+          <select class="" name="category">
+            {% for category in categories%}
+              <option name="category" value="{{category.name}}"
+                >{{category.name}}</option>
+            {% endfor %}
+          </select>
+          <input
+            type="submit"
+            value="Submit"
+            class=""
+          />
+</form>
+{% endblock content %} {% endcomment %}
+
+{% comment %} {% extends "base.html" %}
+{% load static %} {% endcomment %}
+{% block content %}
+
+  <section class="add-post form-section">
+    <div class="container">
+      <div class="everything">
+      {% include 'partials/_messages.html'%} {% csrf_token %}
+        <h2>
+          Add Post
+        </h2>
+
+        <form  action="{% url 'create_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="form-inputs">
+            <label for="title">
+              Title
+            </label>
+            <input value="{{values.title}}"   class="input-f" type="text" required placeholder="firstname" name="title" autofocus maxlength="100">
+    
+            <div id="select">
+              <div>
+                <label for="type">type </label>
+                <select class="one" id="type" name="category">
+                  {% for category in categories%}
+                    <option name="category" value="{{category.name}}">
+                      {{category.name}} </option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div>
+                <label for="wilaya">Wilaya</label>
+                <select class="one" id="wilaya" name="wilaya">
+                    <option name="djelfa" value="djelfa">Djelfa </option>
+                    <option name="algiers" value="algiers">Algiers </option>
+                </select>
+              </div>
+            </div>
+    
+            <div id="select">
+              <div>
+                <label for="months">Months</label>
+                <select class="one" id="wilaya" name="months">
+                  <option value="6">6 months</option>
+                  <option value="12">12 months</option>
+                  <option value="24">24 months</option>
+                </select>
+              </div>
+            </div>
+    
+            <label for="is_cash">Is Cash</label>
+            <input type="checkbox" name="is_cash" id="is_cash">
+
+    
+    
+            <label for="price">
+              price
+            </label>
+            <input type="price"  placeholder="price" name="price">
+            <!-- </div> -->
+            
+            
+            <div>
+              <label for="description">description</label>
+            </div>
+            <div id="desc">
+              <textarea name="description"  id="description" placeholder="description" value="{{values.description}}" ></textarea>
+            </div>
+            
+            
+            
+            <div class="uploadimages-pick">
+          <output class="uploadimages" id="result">
+        
+        
+          </output>
+        
+          <div class="uploadimages-btn custom-input-file">
+            add images
+            <input name="images" type="file" required id="files" multiple accept="image/jpeg, image/png, image/jpg">
+          </div>
+        </div>
+
+          <input class="btn" type="submit" value="submit" />
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="{% static 'js/add-post.js' %}"></script>
+{% endblock content %}

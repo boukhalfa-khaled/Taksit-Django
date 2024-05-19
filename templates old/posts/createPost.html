@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<form action="{% url "create_post" %} " method="POST">
+  {% include 'partials/_messages.html'%} {% csrf_token %}
+          <label for="">title</label>
+          <input
+            type="text"
+            class=""
+            name="title"
+            value="{{values.title}}"
+          />
+          <label for="">Description</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="description"
+            value="{{values.description}}"
+          />
+          <label for="">Category</label>
+          <select class="" name="category">
+            {% for category in categories%}
+              <option name="category" value="{{category.name}}"
+                >{{category.name}}</option>
+            {% endfor %}
+          </select>
+          <input
+            type="submit"
+            value="Submit"
+            class=""
+          />
+</form>
+{% endblock content %}
+

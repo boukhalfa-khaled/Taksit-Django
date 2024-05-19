@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<section class="profile-avatar">
+  <div class="container">
+    {% include "partials/_messages.html" %}
+    <div class="avatar"><a href="">
+        <img src="{{ request.user.img.url }}" alt="">
+      </a>
+    </div>
+    <p class="name"> {{request.user.first_name}} {{request.user.last_name}} </p>
+  </div>
+</section>
+
+
+
+
+<section class="posts profile">
+  <div class="container">
+    <h2 class="category-title">posts</h2>
+  </div>
+  <div class="container">
+
+
+    <div class="wrapper">
+
+
+{% for post in  post_data %}
+      <div class="post">
+        <div class="image">
+              <img src="{{ post.image  }}" alt="Image">
+        </div>
+        <div class="content">
+          <h4 class="title"> {{post.post.title}} </h4>
+          <div class="rowPrice">
+            <div class="price">
+              {{post.post.price}}DA
+              {% if post.post.months is not none %}
+                \ {{ post.post.months }}  month
+              {% endif %}
+            </div>
+            <div class="wilayTag">
+              {{post.post.wilaya}} 
+            </div>
+          </div>
+        </div>
+        <a  href="{% url 'post_detail'  post_id=post.post.id  %}" class="button">
+          See More >
+        </a>
+      </div>
+{% endfor %}
+
+
+
+
+
+    </div>
+  </div>
+</section>
+  <script src="{% static 'js/main.js' %}"></script>
+{% endblock content %}
