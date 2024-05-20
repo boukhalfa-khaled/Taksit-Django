@@ -6,136 +6,51 @@
 
 
 
-<section class="category_cursol">
+<section class="filter">
   <div class="container">
-    <div class="emblaCategory">
-      <div class="emblaCategory__viewport">
-        <div class="emblaCategory__container">
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/gamingCategory.png' %}" alt="">
-              </div>
-              <p class="title">Gaming</p>
-            </div>
-          </a>
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/sportEquipment.png' %}" alt="">
-              </div>
-              <p class="title">Sport Equipment</p>
-            </div>
-          </a>
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/kitchen.png' %}" alt="">
-              </div>
-              <p class="title">Kitchen</p>
-            </div>
-          </a>
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/mobiles.png' %}" alt="">
-              </div>
-              <p class="title">Mobiles</p>
-            </div>
-          </a>
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/office.png' %}" alt="">
-              </div>
-              <p class="title">Office</p>
-            </div>
-          </a>
-
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/camera.png' %}" alt="">
-              </div>
-              <p class="title">Cameras</p>
-            </div>
-          </a>
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/computer.png' %}" alt="">
-              </div>
-              <p class="title">Computers</p>
-            </div>
-          </a>
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/tv.png' %}" alt="">
-              </div>
-              <p class="title">Televisions</p>
-            </div>
-          </a>
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/gamingCategory.png' %}" alt="">
-              </div>
-              <p class="title">Gaming</p>
-            </div>
-          </a>
-
-            
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/kitchen.png' %}" alt="">
-              </div>
-              <p class="title">Kitchen</p>
-            </div>
-          </a>
-
-
-          <a href="./index.html" class="emblaCategory__slide">
-            <div class="category">
-              <div class="image">
-                <img src="{% static '/assets/mobiles.png' %}" alt="">
-              </div>
-              <p class="title">Mobiles</p>
-            </div>
-          </a>
-
+    <form action="">
+      <div class="search__input">
+        <input type="search" id="search">
+        <div class="search--icon">
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
       </div>
-      <button class="emblaCategoryControler emblaCategory__prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="emblaCategoryControler emblaCategory__next"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+
+      <div id="select__inputs">
+        <div>
+          <label for="wilaya">wilaya</label>
+          <select class="one" id="type" name="type">
+            <option value="Taksit">Taksit</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="category">category</label>
+          <select class="one" id="wilaya" name="wilaya">
+            <option value="djelfa">Djelfa</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="duration">Duration</label>
+          <select class="one" id="wilaya" name="wilaya">
+            <option value="12">12 months</option>
+            <option value="24">24 months</option>
+          </select>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 
 
 
-
-
   <section class="posts">
     <div class="container">
-      <h2 class="category-title">trending</h2>
-      <a href="#">View more -></a>
+      <h2 class="category-title">posts</h2>
+      {% comment %} <a href="#">View more -></a> {% endcomment %}
     </div>
     <div class="container">
 
@@ -152,10 +67,13 @@
           <h4 class="title"> {{post.post.title}} </h4>
           <div class="rowPrice">
             <div class="price">
-              {{post.post.price}}  \ {{post.post.month}}  month
+              {{post.post.price}}DA
+              {% if post.post.months is not none %}
+                \ {{ post.post.months }}  month
+              {% endif %}
             </div>
             <div class="wilayTag">
-              {{post.order_count}} 
+              {{post.post.wilaya}} 
             </div>
           </div>
         </div>

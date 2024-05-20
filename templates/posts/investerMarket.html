@@ -19,14 +19,14 @@
 
         <div id="select__inputs">
           <div>
-            <label for="wilaya">wilaya</label>
+            <label for="wilaya">Type</label>
             <select class="one" id="type" name="type">
               <option value="Taksit">Taksit</option>
             </select>
           </div>
 
           <div>
-            <label for="category">category</label>
+            <label for="category">wilaya</label>
             <select class="one" id="wilaya" name="wilaya">
               <option value="djelfa">Djelfa</option>
             </select>
@@ -37,6 +37,7 @@
             <select class="one" id="wilaya" name="wilaya">
               <option value="12">12 months</option>
               <option value="24">24 months</option>
+              <option value="24">36 months</option>
             </select>
           </div>
         </div>
@@ -49,6 +50,7 @@
 
 
 
+      {% include "partials/_messages.html" %}
 
   <section class="posts profile">
     <div class="container">

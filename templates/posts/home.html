@@ -136,7 +136,7 @@
   <div class="embla">
     <div class="embla__viewport">
       <div class="embla__container">
-        <div class="embla__slide"><img src="{% static 'images/4.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/3.jpeg' %}" alt="">
           <div class="content" data-aos="fade-left"  >
             <p>save 8000.00DA</p>
             <h2>New Bespoke AI Laundry<br> Combo</h2>
@@ -147,7 +147,7 @@
           </div>
         </div>
 
-        <div class="embla__slide"><img src="{% static 'images/1.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/2.jpeg' %}" alt="">
           <div class="content black"    >
             <p>limit time offer</p>
             <h2>Intelligent design <br> smart saving</h2>
@@ -158,7 +158,7 @@
           </div>
         </div>
 
-        <div class="embla__slide"><img src="{% static 'images/2.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/1.jpeg' %}" alt="">
           <div class="content black"  >
             <h2>Buy Big. Get Bigger.</h2>
             <p>Get The Freestyle 2nd Gen portable projector with Gaming <br> Hub when you buy a 98" QLED 4K.</p>
@@ -168,7 +168,7 @@
           </div>
         </div>
 
-        <div class="embla__slide"><img src="{% static 'images/3.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/7.jpeg' %}" alt="">
           <div class="content black">
             <p>save 8000.00DA</p>
             <h2>New Bespoke AI Laundry<br> Combo</h2>
@@ -179,7 +179,7 @@
           </div>
         </div>
         
-        <div class="embla__slide"><img src="{% static 'images/5.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/4.jpeg' %}" alt="">
           <div class="content black">
             <p>Save 7000.00DA</p>
             <h2>Cool deals on <br> cooler fridges</h2>
@@ -189,7 +189,7 @@
             </a>
           </div>
         </div>
-        <div class="embla__slide"><img src="{% static 'images/6.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/5.jpeg' %}" alt="">
           <div class="content black"  >
             <p>limit time offer</p>
             <h2>Intelligent design <br> smart saving</h2>
@@ -199,7 +199,7 @@
             </a>
           </div>
         </div>
-        <div class="embla__slide"><img src="{% static 'images/7.jpeg' %}" alt="">
+        <div class="embla__slide"><img src="{% static 'images/6.jpeg' %}" alt="">
           <div class="content "   >
             <p>Save 10000.00DA</p>
             <h2>Meet your new Galaxy <br>family</h2>
@@ -214,9 +214,9 @@
     <button class="emblaControler embla__prev"><i class="fa-solid fa-chevron-left"></i></button>
     <button class="emblaControler embla__next"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
+</div>
 
 
-  </div>
 </section>
 
   <section class="posts">
@@ -239,7 +239,10 @@
           <h4 class="title"> {{post.post.title}} </h4>
           <div class="rowPrice">
             <div class="price">
-              {{post.post.price}}  \ {{post.post.month}}  month
+              {{post.post.price}}DA
+              {% if post.post.months is not none %}
+                \ {{ post.post.months }}  month
+              {% endif %}
             </div>
             <div class="wilayTag">
               {{post.post.wilaya}} 

@@ -33,7 +33,7 @@
 
       </div>
       <div class="right">
-        <a href="./filter.html"  class="search-icon "><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#"  class="search-icon "><i class="fa-solid fa-magnifying-glass"></i></a>
         <ul class="nav__links">
           <a href="{% url 'home' %}">
             <li>Home</li>
@@ -41,6 +41,17 @@
           <a href="{% url 'posts' %}">
             <li>MarketPlace</li>
           </a>
+
+      {% if  request.user.role == "seller" %}
+          <a href="{% url 'create_post' %}">
+            <li>Create Post</li>
+          </a>
+      {% endif  %}
+      {% if  request.user.role == "invester" %}
+          <a href="{% url 'invester-market' %}">
+            <li>Invester-Market</li>
+          </a>
+      {% endif  %}
             <li id="languageSelect" class="nav__links-language">
               <span>Language</span>
               <span></span>
@@ -66,7 +77,7 @@
           </div>
           <ul>
               <p id="name">
-              {{request.user.first_name}}
+              {{request.user.role}}
               </p>
             <a href="{% url 'profile' %}  ">
               <li><i class="fa-solid fa-user"></i> profile</li>
@@ -75,7 +86,7 @@
               
               <form action="{% url 'logout' %}  " method="POST">
                 {%csrf_token%}
-                <input type="submit" value="sign out" >
+                <input type="submit" class="header_logout" value="sign out" >
               </form>
                 {% comment %} <li><i class="fa-solid fa-arrow-right-from-bracket"></i> logout</li> {% endcomment %}
             </a>
@@ -85,19 +96,14 @@
       {% else %}
 
           <div class="nav__buttons">
-            <a href="{% url 'register_seller' %} ">
-              <div class="nav__buttons-login btn">
-              seller
-              </div>
-            </a>
-            <a href="{% url 'register_invester' %} ">
-              <div class="nav__buttons-login btn">
-              invester
-              </div>
-            </a>
             <a href="{% url 'register_customer' %} ">
               <div class="nav__buttons-login btn">
                 signup
+                <ul class="roles">
+                  <a href="{% url 'register_customer' %}"><li>as a customer</li></a>
+                  <a href="{% url 'register_seller' %}"><li>as a seller</li></a>
+                  <a href="{% url 'register_invester' %} "><li>as an invester</li> </a>
+                </ul>
               </div>
             </a>
             <a href="{% url 'login' %}">

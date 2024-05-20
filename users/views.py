@@ -288,7 +288,8 @@ class ProfileView(View):
         elif role == "customer":
             return CustomerProfileView.as_view()(request)
         else:
-            raise Http404("Page not found")
+            return redirect('invester-market')  
+
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
